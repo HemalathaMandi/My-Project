@@ -30,26 +30,26 @@ static String[] data;
 			String xpath1="/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/th/table/tbody/tr[6]/td["+i+"]";
 			data[i]=driver.findElement(By.xpath(xpath1)).getText();
 			System.out.print(data[i]);
-				xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i], "Sheet1",30,i);
+				xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", data[i], "Sheet1",30,i);
 		}
 	}
 //To validate data
 	@Then("^I validate$")
 	public void i_validate() throws Throwable {
 		ExcelRW xl = new ExcelRW();
-		if(xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", 30, 1).equals("Mon"))
+		if(xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", 30, 1).equals("Mon"))
 		{
 			System.out.println("Pass");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "cruiseData Retrived", "Sheet1", 28,5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 28,6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "cruiseData Retrived", "Sheet1", 28,5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "pass", "Sheet1", 28,6);
 		}
 		else
 		{
 			System.out.println("Fail");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable cannot be Retrived", "Sheet1", 28,5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 28,6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "HomeTable cannot be Retrived", "Sheet1", 28,5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "fail", "Sheet1", 28,6);
 		}
-		screenShot("src\\test\\resources\\ScreenShots\\cruise.png"); //To take screenshot
+		screenShot("src/test/resources/ScreenShots/cruise.png"); //To take screenshot
 		quit(); //To  close the browser
 	   
 	}

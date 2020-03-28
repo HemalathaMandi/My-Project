@@ -13,6 +13,7 @@ import mercury.Pages.LoginPage;
 public class TC_05InvalidLogin extends WrapperClass{
 	static LoginPage lpom;
 	static String[] data;
+
 	//To launch the browser
 	@Given("^the user launch the application in browser$")
 	public void the_user_launch_the_application_in_browser() throws Throwable {
@@ -26,9 +27,9 @@ public class TC_05InvalidLogin extends WrapperClass{
 
 		data=new String[2];
 		int j=0; 
-		for (int i=31;i<=32;i++) {
+		for (int i=17;i<=18;i++) {
 
-			data[j]=xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", i, 3); 
+			data[j]=xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", i, 3); 
 			System.out.println(data[j]);
 
 			j++; }
@@ -46,20 +47,20 @@ public class TC_05InvalidLogin extends WrapperClass{
 	public void i_validate_the_outcomes_of_invalid_login() throws Throwable {
 		String ar= lpom.invalidlogin();
 		ExcelRW xl = new ExcelRW();
-		String er= xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", 17, 4);
+		String er= xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", 17, 4);
 			System.out.println(ar+"\n"+er);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", ar, "Sheet1", 17,5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", ar, "Sheet1", 17,5);
 			if(ar.equals(er))
 			{
 				System.out.println("Pass");
-				xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 17,6);
+				xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "pass", "Sheet1", 17,6);
 			}
 			else
 			{
 				System.out.println("Fail");
-				xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 17,6);
+				xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "fail", "Sheet1", 17,6);
 			}
-			screenShot("src\\test\\resources\\ScreenShots\\Invalidlogin.png"); //To take screnshot
+			screenShot("src/test/resources/ScreenShotsInvalidlogin.png"); //To take screnshot
 			quit();  //to close the browser
 	}
 

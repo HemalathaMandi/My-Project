@@ -31,7 +31,7 @@ public class TC_04ValidLogin extends WrapperClass {
 		  {
 			  data=new String[2]; 
 			  for(int k=0;k<=1;k++) {
-				  data[j]=xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", m, 3); 
+				  data[j]=xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", m, 3); 
 				  System.out.println(data[j]);
 				  j++;
 				  m++;
@@ -53,20 +53,20 @@ public class TC_04ValidLogin extends WrapperClass {
 	public void i_validate_the_outcomes_of_valid_login() throws Throwable {
 		 ExcelRW xl = new ExcelRW();
 		String ar= "SIGN-OFF";
-		String er= xl.readXL("src\\test\\esources\\TestData\\MercuryExcel.xlsx", 14, 4);
+		String er= xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", 14, 4);
 		System.out.println(ar+"\n"+er);
-		xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", ar, "Sheet1", 14,5);
+		xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", ar, "Sheet1", 14,5);
 		if(ar.equals(er))
 		{
 			System.out.println("Pass");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 14,6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "pass", "Sheet1", 14,6);
 		}
 		else
 		{
 			System.out.println("Fail");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 14,6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "fail", "Sheet1", 14,6);
 		}
-		screenShot("src\\test\\resources\\ScreenShots\\valildLogin.png");
+		screenShot("src/test/resources/ScreenShots/validLogin.png");
 		quit();
 	}
 }

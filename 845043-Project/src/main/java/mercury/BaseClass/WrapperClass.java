@@ -20,19 +20,19 @@ public class WrapperClass {
 		
 		if(browserName.equalsIgnoreCase("chrome")){
 			
-			System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver_v80.exe");
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/Drivers/chromedriver_v80.exe");
 			driver = new ChromeDriver();
 		}
 		
 		else if(browserName.equalsIgnoreCase("firefox")){
 			
-			System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\Drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "src/test/resources/Drivers/geckodriver.exe");
 			//System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/drivers/geckodriver");
 			driver = new FirefoxDriver();
 		}
 		
 		else if(browserName.equals("IE")){
-			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "src\\test\\resources\\Drivers\\IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") +"src/test/resources/Drivers/IEDriverServer.exe");
 			 driver = new FirefoxDriver();
 		}
 		

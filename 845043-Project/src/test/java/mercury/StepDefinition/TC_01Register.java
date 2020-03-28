@@ -30,7 +30,7 @@ public class TC_01Register extends WrapperClass {
 		int j=0; 
 		for (int i=1;i<=11;i++) {
 
-			data[j]=xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", i, 3); 
+			data[j]=xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", i, 3); 
 			System.out.println(data[j]);
 
 			j++;
@@ -55,20 +55,20 @@ public class TC_01Register extends WrapperClass {
 		ExcelRW xl = new ExcelRW();
 		String ar = rpom.actRes();
 		System.out.println(ar);
-		String er = xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", 1, 4);
+		String er = xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", 1, 4);
 		System.out.println(er);
 		if (er.equals(ar)) {
 			System.out.println("pass");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", ar, "Sheet1", 1, 5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 1, 6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", ar, "Sheet1", 1, 5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "pass", "Sheet1", 1, 6);
 		}
 		else
 		{
 			System.out.println("fail");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", ar, "Sheet1", 1, 5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 1, 6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", ar, "Sheet1", 1, 5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "fail", "Sheet1", 1, 6);
 		}
-		screenShot("src\\test\\resources\\ScreenShots\\Register.png");  //To take scrrenshot
+		screenShot("src/test/resources/ScreenShots/Register.png");  //To take scrrenshot
 		quit(); //To close the browser
 	}
 }

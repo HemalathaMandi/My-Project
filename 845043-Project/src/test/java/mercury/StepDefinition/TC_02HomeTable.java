@@ -38,9 +38,9 @@ public class TC_02HomeTable extends WrapperClass {
 		{
 			for(int j=1;j<=2;j++){
 				if( j==1)
-					xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i][j], "Sheet1",22+i ,0);
+					xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", data[i][j], "Sheet1",22+i ,0);
 				else
-					xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i][j], "Sheet1",22+i ,1);
+					xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", data[i][j], "Sheet1",22+i ,1);
 			}
 		}
 		
@@ -49,19 +49,19 @@ public class TC_02HomeTable extends WrapperClass {
 	@Then("^I validate the outcomes of Retrived Table$")
 	public void i_validate_the_outcomes_of_Retrived_Table() throws Throwable {
 		ExcelRW xl = new ExcelRW();
-		if(xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", 17, 1).equals("Atlanta to Las Vegas"))
+		if(xl.readXL("src/test/resources/TestData/MercuryExcel.xlsx", 17, 1).equals("Atlanta to Las Vegas"))
 		{
 			System.out.println("Pass");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable Retrived", "Sheet1",20,5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 20,6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "HomeTable Retrived", "Sheet1",20,5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "pass", "Sheet1", 20,6);
 		}
 		else
 		{
 			System.out.println("Fail");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable cannot be Retrived", "Sheet1", 20,5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 20,6);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "HomeTable cannot be Retrived", "Sheet1", 20,5);
+			xl.writeXL("src/test/resources/TestData/MercuryExcel.xlsx", "fail", "Sheet1", 20,6);
 		}
-		screenShot("src\\test\\resources\\ScreenShots\\Hometable.png");  //To take scrrenshot
+		screenShot("src/test/resources/ScreenShots/Hometable.png");  //To take scrrenshot
 		quit();   //To close the browser
 	   
 	}
