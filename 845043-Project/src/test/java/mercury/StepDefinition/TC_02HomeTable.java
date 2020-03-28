@@ -10,12 +10,12 @@ import mercury.BaseClass.WrapperClass;
 
 public class TC_02HomeTable extends WrapperClass {
 	static String[][] data;
-	
+	//To launch the browser
 	@Given("^user launches the application in browser$")
 	public void user_launches_the_application_in_browser() throws Throwable {
 		launchBrowser("chrome", "http://newtours.demoaut.com/index.php");
 	}
-
+//To read the data
 	@Then("^Read the Hometable$")
 	public void read_the_Hometable() throws Throwable {
 		data=new String[50][50];
@@ -30,7 +30,7 @@ public class TC_02HomeTable extends WrapperClass {
 			System.out.println();
 		}
 	}
-
+//To write the data
 	@Then("^write the table in ExcelSheey$")
 	public void write_the_table_in_ExcelSheey() throws Throwable {
 		ExcelRW xl = new ExcelRW();
@@ -38,32 +38,33 @@ public class TC_02HomeTable extends WrapperClass {
 		{
 			for(int j=1;j<=2;j++){
 				if( j==1)
-					xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i][j], "Sheet1",16+i ,1);
+					xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i][j], "Sheet1",22+i ,0);
 				else
-					xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i][j], "Sheet1",16+i ,2);
+					xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", data[i][j], "Sheet1",22+i ,1);
 			}
 		}
 		
 	}
-
+//To validate the outcomes
 	@Then("^I validate the outcomes of Retrived Table$")
 	public void i_validate_the_outcomes_of_Retrived_Table() throws Throwable {
 		ExcelRW xl = new ExcelRW();
 		if(xl.readXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", 17, 1).equals("Atlanta to Las Vegas"))
 		{
 			System.out.println("Pass");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable Retrived", "Sheet1", 13,5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 13,6);
+			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable Retrived", "Sheet1",20,5);
+			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "pass", "Sheet1", 20,6);
 		}
 		else
 		{
 			System.out.println("Fail");
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable cannot be Retrived", "Sheet1", 13,5);
-			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 13,6);
+			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "HomeTable cannot be Retrived", "Sheet1", 20,5);
+			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 20,6);
 		}
-		screenShot("src\\test\\resources\\ScreenShots\\Hometable.png");
-		quit();
+		screenShot("src\\test\\resources\\ScreenShots\\Hometable.png");  //To take scrrenshot
+		quit();   //To close the browser
 	   
 	}
+	
 
 }

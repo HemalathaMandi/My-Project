@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src\\main\\resources\\Feature\\Mercury.Feature",
+		features = "src/main/resources/Feature/Mercury.feature",
 		plugin= {"pretty","html:Reports\\cucumberHTMLReport","json:Reports\\cucumberHTMLReport\\jsonreport",
 		"com.cucumber.listener.ExtentCucumberFormatter:Reports\\ExtentReports\\extentreport.html"},
 		glue= {"mercury.StepDefinition"},

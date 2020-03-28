@@ -13,13 +13,13 @@ import mercury.Pages.RegistrationPages;
 public class TC_01Register extends WrapperClass {
 	static RegistrationPages rpom;
 	static String[] data = null;
-
+//To launch the browser
 	@Given("^the user launch the application in the browser$")
 	public void the_user_launch_the_application_in_the_browser() throws Throwable {
 		launchBrowser("chrome", "http://newtours.demoaut.com/index.php");
 	}
 
-	
+//To open register page
 	@When("^the user open the MercuryTours Registration page$")
 	public void the_user_open_the_MercuryTours_Registration_page() throws Throwable {
 		rpom = PageFactory.initElements(driver, RegistrationPages.class);
@@ -37,19 +37,19 @@ public class TC_01Register extends WrapperClass {
 		}
 	}
 
-	
+//To fill the details	
 	@Then("^the user fills all the Details$")
 	public void the_user_fills_all_the_Details() throws Throwable {
 		rpom.RegisterPage(data);
 	}
 
-	
+	//to click on register button
 	@Then("^click on the Register button$")
 	public void click_on_the_Register_button() throws Throwable {
 		rpom.submit();
 	}
 
-	
+//To validate the outcomes	
 	@Then("^I validate the outcomes$")
 	public void i_validate_the_outcomes() throws Throwable {
 		ExcelRW xl = new ExcelRW();
@@ -68,7 +68,7 @@ public class TC_01Register extends WrapperClass {
 			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", ar, "Sheet1", 1, 5);
 			xl.writeXL("src\\test\\resources\\TestData\\MercuryExcel.xlsx", "fail", "Sheet1", 1, 6);
 		}
-		screenShot("src\\test\\resources\\ScreenShots\\Register.png");
-		quit();
+		screenShot("src\\test\\resources\\ScreenShots\\Register.png");  //To take scrrenshot
+		quit(); //To close the browser
 	}
 }
